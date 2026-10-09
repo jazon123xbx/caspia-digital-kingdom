@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#071a32" name="theme-color"/><title>Save Princess Caspia • Royal Pearl Rescue</title><link href="data:," rel="icon"/><link href="css/game.css" rel="stylesheet"/><link href="css/caspia-character-fx.css" rel="stylesheet"/><link href="css/caspia-bosses.css" rel="stylesheet"/><link href="css/v13-live.css" rel="stylesheet"/></head>
+<body>
+<aside aria-label="Princess Caspia rescue story" class="desktop-story">
+<div class="story-image"><img class="v13-story-fallback" alt="Princess Caspia, with long pink hair and a blue tail, in the underwater kingdom" src="assets/caspia.webp"/><div id="v13CaspiaPortrait" class="v13-story-portrait"></div></div>
+<div class="story-content">
+<span class="story-overline">THE ENCHANTED KINGDOM</span>
+<h2>A princess awaits her guardian.</h2>
+<p>The palace is trapped in a spell. Guide Snap through the reefs, break the guardians' shields, and set Caspia free.</p>
+<div aria-hidden="true" class="rescue-orbit"><span>✦</span> ✧ <span>✦</span> ✧ <span>✦</span></div>
+</div>
+</aside><aside aria-label="Rescue journey stages" class="desktop-progress">
+<div class="progress-inner">
+<div class="rail-kicker">YOUR ROYAL QUEST</div>
+<h2>Journey to<br/><em>the palace.</em></h2>
+<div class="quest-path" id="questPath">
+<div class="quest-step" data-stage="1"><span class="quest-dot">01</span><span>First Mission</span></div>
+<div class="quest-step" data-stage="2"><span class="quest-dot">02</span><span>Coral Passage</span></div>
+<div class="quest-step" data-stage="3"><span class="quest-dot">03</span><span>Pearl Maze</span></div>
+<div class="quest-step boss-quest" data-stage="4"><span class="quest-dot">04</span><span>Jellyfish Guardian</span></div>
+<div class="quest-step" data-stage="5"><span class="quest-dot">05</span><span>Whispering Reef</span></div>
+<div class="quest-step" data-stage="6"><span class="quest-dot">06</span><span>Sunken Gate</span></div>
+<div class="quest-step boss-quest" data-stage="7"><span class="quest-dot">07</span><span>Armored Crab</span></div>
+<div class="quest-step" data-stage="8"><span class="quest-dot">08</span><span>Crystal Passage</span></div>
+<div class="quest-step" data-stage="9"><span class="quest-dot">09</span><span>Palace Entrance</span></div>
+<div class="quest-step boss-quest" data-stage="10"><span class="quest-dot">10</span><span>Final Enchantment</span></div>
+</div>
+<button class="desktop-map-btn" id="desktopMapBtn" type="button">✧   View level map   →</button>
+</div>
+</aside><div aria-hidden="true" class="sea-glow"></div>
+<main class="game-shell" id="shell">
+<header class="topbar">
+<a aria-label="Return to website home" class="back home-nav" href="index.html" id="backLink" title="Return to website home"><span aria-hidden="true" class="home-nav-icon">⌂</span><span class="home-label">Home</span></a>
+<div class="brand"><span class="brand-crown">♛</span><span> SAVE <em>CASPIA</em></span></div>
+<div class="toolbar"><button aria-label="Toggle sound" class="icon-btn" id="soundBtn">♫</button><button aria-label="Sound settings" title="Sound settings" class="icon-btn" id="audioSettingsBtn">⚙</button><button aria-label="Open tutorial" class="icon-btn" id="guideBtn">?</button><button aria-label="Pause game" class="icon-btn" id="pauseBtn">Ⅱ</button></div>
+</header>
+<div class="meta-bar">
+<button aria-label="Open level map" class="level-pill" id="mapBtn"><small>STAGE</small><strong id="levelLabel">1 / 10</strong><span>⌄</span></button>
+<div class="stat"><small>SCORE</small><strong aria-live="off" id="score">0</strong></div>
+<div class="stat"><small>TIME</small><strong aria-live="off" id="time">2:30</strong></div>
+<div class="stat"><small>COMBO</small><strong id="comboValue">×1</strong></div>
+</div>
+<div class="v13-mobile-dialogue" id="v13MobileDialogue" aria-live="polite"><img id="v13MobileFace" src="assets/characters/caspia-idle.webp" alt=""/><span id="v13MobileLine">Snap, I believe in you!</span></div>
+<div class="mission-row"><span id="missionText">Rescue mission begins!</span><span id="progressText">Rescue 0%</span></div>
+<div class="pressure-row"><span aria-atomic="true" aria-live="polite" class="pressure-text" id="pressureText">DESCENT IN 3 MISSES</span></div>
+<div class="timer-track"><div id="timebar"></div></div>
+<section aria-label="Enchanted pearl shooter playfield" class="board" data-chapter="reef" id="board">
+<div aria-hidden="true" class="v13-boss-anchor" id="v13BossAnchor" hidden></div><div aria-hidden="true" class="v13-prison-anchor" id="v13PrisonAnchor"><div id="v13Prison"></div></div><div aria-hidden="true" class="board-art"><i class="ray r1"></i><i class="ray r2"></i><i class="ray r3"></i><i class="reef reef1"></i><i class="reef reef2"></i></div>
+<div aria-hidden="true" class="ocean-motes"><i style="--side:9%;--delay:-0.0s;--dur:9s"></i><i style="--side:36%;--delay:-1.6s;--dur:12s"></i><i style="--side:63%;--delay:-3.2s;--dur:15s"></i><i style="--side:0%;--delay:-4.8s;--dur:18s"></i><i style="--side:27%;--delay:-6.4s;--dur:9s"></i><i style="--side:54%;--delay:-8.0s;--dur:12s"></i><i style="--side:81%;--delay:-9.6s;--dur:15s"></i><i style="--side:18%;--delay:-11.2s;--dur:18s"></i><i style="--side:45%;--delay:-12.8s;--dur:9s"></i><i style="--side:72%;--delay:-14.4s;--dur:12s"></i></div><div aria-hidden="true" class="hit-flash" id="hitFlash"></div>
+<div class="reef-alert" id="reefAlert" role="status" aria-live="assertive" aria-atomic="true" hidden>
+ <span class="reef-alert-icon" aria-hidden="true">!</span>
+ <span><strong>CRITICAL REEF WARNING</strong><small id="reefAlertDetail">One descent from Game Over — clear the pearls!</small></span>
+</div><div aria-live="polite" class="cine-banner" id="cineBanner"><div class="cine-kicker" id="cineKicker">THE UNDERWATER KINGDOM</div><div class="cine-heading" id="cineHeading">The Adventure Begins</div><div class="cine-caption" id="cineCaption">Rescue Princess Caspia</div></div><canvas aria-describedby="hintLine" aria-label="Aim and launch enchanted pearls with Snap" id="gameCanvas" tabindex="0"></canvas>
+<div class="boss-info" hidden="" id="bossInfo"><div class="boss-name" id="bossName">Jellyfish Guardian</div><div class="boss-hp"><span id="hpFill"></span></div><div class="boss-status" id="bossStatus">Break the protective pearls!</div></div>
+<div class="rescue-preview" hidden="" id="rescuePreview"><img alt="Caspia awaiting rescue" id="caspiaMini" src="assets/caspia.webp"/><span>Save me, Snap!</span></div>
+<div class="combo-toast" id="comboToast"><img alt="Princess Caspia" id="comboFace" src="assets/praise/caspia-great.webp"/><div><strong id="comboTitle">GREAT!</strong><small id="comboDesc">Wonderful match!</small></div></div>
+<div class="tutorial-tip" hidden="" id="tutorialTip"></div>
+<div aria-label="Snap, Caspia's pistol shrimp, aims the pearl launcher" class="snap-wrap" id="snapWrap">
+<svg aria-label="Pink coral pistol shrimp with segmented body, walking legs and large snapping claw" class="snap-art" role="img" viewbox="0 0 300 196" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<lineargradient id="shell" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ffe7e8"></stop><stop offset=".34" stop-color="#ff9eaf"></stop><stop offset=".77" stop-color="#ef6c97"></stop><stop offset="1" stop-color="#9e3f84"></stop></lineargradient>
+<lineargradient id="clawPink" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff3ee"></stop><stop offset=".45" stop-color="#ffacb4"></stop><stop offset="1" stop-color="#e65b87"></stop></lineargradient>
+<lineargradient id="shimmer" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#3ce4db"></stop><stop offset="1" stop-color="#5cb7e6"></stop></lineargradient>
+</defs>
+<!-- narrow tail fan and articulated abdomen -->
+<path d="M33 117 C17 103 6 103 10 120 Q20 134 42 135 M36 121 Q12 133 17 149 Q28 155 47 136 M38 121 Q28 100 36 91 Q48 103 49 118" fill="#ff8eaf" stroke="#ffe4ed" stroke-width="3"></path>
+<g stroke="#ffc8d7" stroke-linejoin="round" stroke-width="3">
+<path d="M41 103 Q67 77 85 97 Q98 113 84 139 Q64 156 43 137Z" fill="#ed88ac"></path>
+<path d="M65 94 Q97 70 113 94 Q131 116 110 143 Q91 153 75 143Z" fill="#ed88ac"></path>
+<path d="M92 88 Q122 65 143 89 Q161 113 142 141 Q123 150 105 137Z" fill="#ed88ac"></path>
+<path d="M119 87 Q155 57 178 82 Q198 110 175 145 Q148 156 130 136Z" fill="#ed88ac"></path>
+</g>
+<g fill="none" opacity=".6" stroke="#ffd8e2" stroke-linecap="round" stroke-width="4"><path d="M46 103Q61 92 69 98"></path><path d="M76 99Q91 87 100 93"></path><path d="M105 94Q123 81 135 87"></path><path d="M136 92Q157 76 172 84"></path></g>
+<g fill="none" stroke="#55d7d9" stroke-linecap="round" stroke-width="4"><path d="M64 111L80 103M92 103L108 98M119 98L139 92M150 94L170 87"></path></g>
+<!-- jointed walking legs -->
+<g fill="none" stroke="#f4a0b7" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+<path d="M72 139 L65 154 L51 163 M92 144 L84 163 L72 170 M113 144 L104 166 L94 176 M134 146 L130 168 L119 182 M157 147 L157 168 L148 183 M171 142 L179 162 L176 178"></path>
+</g>
+<g fill="none" stroke="#ffd4e6" stroke-linecap="round" stroke-width="2.5"><path d="M182 85 Q182 29 133 5"></path><path d="M191 82 Q208 28 252 13"></path><path d="M189 80 Q174 42 168 15"></path></g>
+<!-- carapace and stalked eyes -->
+<path d="M150 87 Q169 65 194 71 Q218 78 214 107 Q209 139 180 147 Q155 140 150 112Z" fill="#ed88ac" stroke="#ffd9e3" stroke-width="3"></path>
+<path d="M188 82L189 61 M209 83L220 57" stroke="#ef83aa" stroke-linecap="round" stroke-width="6"></path>
+<ellipse cx="187" cy="58" fill="#edffff" rx="12" ry="14" stroke="#88e5e6" stroke-width="3"></ellipse><ellipse cx="220" cy="54" fill="#edffff" rx="12" ry="14" stroke="#88e5e6" stroke-width="3"></ellipse>
+<circle cx="190" cy="56" fill="#102b4b" r="5"></circle><circle cx="223" cy="52" fill="#102b4b" r="5"></circle>
+<circle cx="192" cy="53" fill="#fff" r="2"></circle><circle cx="225" cy="49" fill="#fff" r="2"></circle>
+<path d="M196 124 Q207 129 215 120" fill="none" stroke="#913866" stroke-linecap="round" stroke-width="3"></path>
+<!-- small pincer -->
+<path d="M180 133Q191 139 203 147L218 139Q223 144 215 154L200 158L188 147" fill="#f8a1b5" stroke="#ffe2e6" stroke-width="2"></path>
+<!-- articulated mighty snapping claw, separate movement -->
+<g class="claw-group" id="clawGroup">
+<path d="M190 116 Q211 100 222 85 L239 97 Q222 120 214 137Z" fill="#57d8de" stroke="#bafcff" stroke-width="3"></path>
+<path d="M220 83 Q235 60 259 67 Q286 79 278 106 Q269 124 245 126 Q233 118 222 105Z" fill="#f8a1b5" stroke="#fff0ee" stroke-width="4"></path>
+<path d="M242 83 Q253 53 276 47 Q293 53 282 75 Q268 89 258 94" fill="#f8a1b5" stroke="#fff0ee" stroke-linejoin="round" stroke-width="4"></path>
+<path d="M248 104 Q267 95 285 99 Q294 113 278 125 Q262 133 247 120" fill="#f8a1b5" stroke="#ffe8ed" stroke-width="4"></path>
+<path d="M246 94 Q263 87 279 90 Q283 94 283 98 Q263 97 249 106Z" fill="#16415a" stroke="#ffcedd" stroke-width="1.5"></path>
+<path d="M248 94L263 90" stroke="#b8487b" stroke-linecap="round" stroke-width="3"></path>
+<path d="M234 89 Q242 83 246 86" opacity=".6" stroke="white" stroke-linecap="round" stroke-width="5"></path>
+</g>
+<path d="M49 111Q70 102 83 112 M80 108 Q97 101 109 105" fill="none" opacity=".65" stroke="#fff5f6" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="snap-caption">SNAP</span>
+</div>
+<div aria-hidden="true" class="v13-snap-anchor" id="v13SnapAnchor"><div id="v13Snap"></div></div><div aria-hidden="true" class="v13-effects" id="v13Effects"></div><div class="error-box" hidden="" id="errorBox" role="alert"><h3>Ocean currents interrupted the game</h3><p id="errorMessage">The board didn't load.</p><button id="retryInit">Retry level</button></div>
+</section>
+<section aria-label="Enchanted pearl launcher controls" class="ammo-row">
+<div class="ammo-card"><div class="bubble-preview" id="readyPreview"></div><span><small>LOADED PEARL</small><b>READY</b></span></div>
+<button aria-label="Swap loaded pearl and next pearl" class="swap-btn" id="swapBtn"><span>⇄</span><small>SWAP</small></button>
+<div class="ammo-card"><span><small>UP NEXT</small><b>NEXT</b></span><div class="bubble-preview" id="nextPreview"></div></div>
+</section>
+<div aria-live="polite" class="hint-line" id="hintLine">Drag to aim • Release to fire • Swap anytime</div><div class="desktop-hint">LAPTOP: AIM WITH MOUSE · CLICK TO FIRE · SPACE TO FIRE · ← / → TO AIM</div>
+</main>
+<div class="overlay" hidden="" id="overlay"><div aria-labelledby="modalTitle" aria-modal="true" class="modal" role="dialog">
+<div class="modal-eyebrow" id="modalEyebrow">ROYAL MISSION</div><h2 id="modalTitle">Save Princess Caspia</h2><div class="modal-illustration" hidden="" id="modalIllustration"></div><p id="modalText"></p><div class="modal-actions" id="modalActions"></div>
+</div></div>
+<script defer src="js/physics.js"></script><script defer src="js/caspia-character-fx.js"></script><script defer src="js/caspia-bosses.js"></script><script defer src="js/v13-live.js"></script><script defer src="js/royal-audio.js"></script><script defer src="js/game.js"></script></body></html>

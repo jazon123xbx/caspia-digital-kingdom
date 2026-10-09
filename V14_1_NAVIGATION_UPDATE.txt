@@ -1,0 +1,10 @@
+Caspia V14.1 — First-time visitor navigation update
+
+1. A visually prominent labeled Home button in the FULL WEBSITE game header opens index.html.
+2. A visually prominent labeled Main Menu button in the SELF-CONTAINED game returns to its internal welcome menu, without trying to open a missing index.html.
+3. Leaving during active gameplay asks for confirmation; Cancel returns to paused gameplay.
+4. The full website welcome dialog has an explicit Website Home action.
+5. Pause dialog labels differentiate Main Menu and Website Home.
+6. Responsive label remains visible on narrow mobile screens.
+
+No changes to game physics, stage progression, images, audio engine or ICS story content.

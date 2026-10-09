@@ -1,0 +1,4 @@
+Caspia V14.2 TEAM UPDATE
+Only kingdom.html #team photo and its layout changed. The existing homepage and game were not modified.
+The new collage is embedded in kingdom.html for offline use and also saved as assets/caspia-team-journey.webp.
+Open index.html -> Explore Our Website -> Our Team. Tap image to enlarge.

@@ -1,0 +1,250 @@
+/* V13 Living Kingdom — strictly presentation layers. The canvas remains interactive. */
+.v13-prison-anchor,.v13-boss-anchor,.v13-snap-anchor,.v13-effects{pointer-events:none!important;user-select:none;}
+.v13-prison-anchor{position:absolute;top:-2px;left:50%;width:238px;height:266px;z-index:4;transform:translateX(-50%) scale(.46);transform-origin:50% 0;filter:drop-shadow(0 0 18px #75ddff63);transition:filter .4s;}
+.v13-prison-anchor .ck-prison{width:238px;height:266px;}
+.v13-prison-anchor .ck-prison-caption{bottom:-1px;color:#ffeaf5;letter-spacing:2px;text-shadow:0 2px 5px #031529;}
+.v13-prison-anchor.is-freed{filter:drop-shadow(0 0 25px #ffde7aa8)}
+.v13-boss-anchor{position:absolute;width:245px;height:238px;transform:translate(-50%,-50%);z-index:2;left:50%;top:155px;filter:drop-shadow(0 0 12px #f4a6ff38)}
+.v13-boss-anchor[hidden]{display:none!important}
+.v13-boss-anchor .cb-stage{width:100%;height:100%}
+.v13-boss-anchor .cb-sprite{max-height:93%}
+.v13-boss-anchor .cb-runering{opacity:.35}
+.v13-snap-anchor{position:absolute;left:0;top:0;width:205px;height:190px;z-index:3;transform-origin:0 0;--v13-snap-scale:.69;will-change:transform}
+.v13-snap-anchor .ck-snap-host{width:205px;height:190px}
+.v13-snap-anchor .ck-snap-image{filter:drop-shadow(0 4px 10px #0008) drop-shadow(0 0 9px #4be6ef36)}
+.v13-snap-anchor .ck-snap-name{display:none}
+.v13-snap-anchor .ck-snap-loaded{opacity:0!important}
+.v13-snap-anchor .ck-snap-flash{left:78%;}
+.v13-snap-anchor .ck-snap-shadow{opacity:.5}
+.v13-effects{position:absolute;inset:0;z-index:7;overflow:hidden;}
+.v13-ready #snapWrap{opacity:0;}
+.v13-ready #gameCanvas{z-index:5;}
+.v13-ready .board-art,.v13-ready .ocean-motes{z-index:0}
+.v13-ready .hit-flash,.v13-ready .cine-banner,.v13-ready .combo-toast,.v13-ready .tutorial-tip{z-index:9}
+.v13-ready .boss-info{z-index:11;top:5px;left:8px;right:8px;}
+.v13-ready .boss-status{background:#061c35e8}
+.v13-ready .bubble-preview{background:radial-gradient(circle at 31% 24%,#fff 0 5%,#fff9 9%,transparent 20%),radial-gradient(circle at 27% 18%,#fffc,transparent 40%),radial-gradient(circle at 73% 80%,#0b2659b7,transparent 62%),var(--orb,#59d8f5);border:2px solid #f2faff;box-shadow:inset 0 2px 4px #fff8,inset -5px -6px 10px #0b275b8f,0 0 16px var(--orb,#ff80c3)}
+.v13-ready .ammo-card small{color:#b6e4f5}
+.v13-ready .board{background:radial-gradient(ellipse at 50% 12%,#276e87aa,transparent 57%),radial-gradient(ellipse at 50% 90%,#194f6488,transparent 52%),linear-gradient(180deg,#103e5b,#072642 72%,#041d34);}
+.v13-ready .board.v13-under-attack{box-shadow:inset 0 0 46px #fd74ca70,0 0 18px #d990fc66}
+.v13-ready .board.v13-rescue-won{box-shadow:inset 0 0 46px #ffda8f70,0 0 25px #84e1fa9c}
+.v13-ready .rescue-preview{display:none!important}
+.v13-ready .combo-toast{top:46%;right:8px;max-width:55%}
+.v13-ready .story-image .v13-story-fallback{opacity:.1;filter:blur(11px) saturate(.9)}
+.v13-story-portrait{display:none}
+@media(min-width:1200px) and (min-height:680px){
+ .v13-ready .desktop-story{background:linear-gradient(172deg,#164b6a,#071b35 70%);}
+ .v13-ready .story-image{height:72%;background:radial-gradient(ellipse at 44% 45%,#56d1ed2b,#51316b38 50%,transparent 78%)}
+ .v13-ready .story-image:after{pointer-events:none;background:linear-gradient(transparent 45%,#071d35 100%);z-index:2}
+ .v13-ready .story-image .v13-story-fallback{position:absolute;inset:0}
+ .v13-ready .v13-story-portrait{position:absolute;inset:0;display:block;z-index:1;}
+ .v13-ready .v13-story-portrait .ck-portrait-image{height:clamp(255px,38vh,360px);border-radius:0;overflow:hidden}
+ .v13-ready .v13-story-portrait .ck-caspia-face{height:100%;width:100%;object-fit:contain;object-position:center bottom}
+ .v13-ready .v13-story-portrait .ck-portrait-heading{padding:9px 13px 7px;font-size:8px;letter-spacing:.8px}
+ .v13-ready .v13-story-portrait .ck-caspia-dialogue{font-size:15px;min-height:94px;margin:0 12px 8px;padding:13px 12px;border-radius:11px;line-height:1.25}
+ .v13-ready .story-content{padding:13px 18px 17px}
+ .v13-ready .story-content h2{font-size:22px;margin:6px 0}
+ .v13-ready .story-content p{font-size:11px;line-height:1.45}
+}
+@media(max-width:1199px){
+ /* Mobile/tablet voice cue without sacrificing the arena height. */
+ .v13-prison-anchor{transform:translateX(-50%) scale(.37);top:-5px}
+ .v13-snap-anchor{--v13-snap-scale:.59}
+ .v13-boss-anchor{width:205px;height:195px}
+}
+@media(max-width:420px){
+ .v13-prison-anchor{transform:translateX(-50%) scale(.32);top:-10px}
+ .v13-snap-anchor{--v13-snap-scale:.53}
+ .v13-boss-anchor{width:185px;height:180px}
+ .v13-ready .combo-toast img{width:38px;height:47px}
+ .v13-ready .combo-toast strong{font-size:16px}
+}
+@media(max-height:690px){
+ .v13-prison-anchor{transform:translateX(-50%) scale(.30);top:-10px}
+ .v13-snap-anchor{--v13-snap-scale:.54}
+ .v13-boss-anchor{width:195px;height:188px}
+}
+@media(prefers-reduced-motion:reduce){.v13-boss-anchor *,.v13-prison-anchor *,.v13-snap-anchor *{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+.v13-mobile-dialogue{display:none}
+@media(max-width:1199px){
+ .v13-ready .v13-mobile-dialogue{height:35px;flex:0 0 35px;display:flex;align-items:center;justify-content:flex-start;gap:9px;margin:3px 0 3px;padding:2px 10px;background:linear-gradient(105deg,#71365383,#183e5680);border:1px solid #ce92c96b;border-radius:11px;color:#ffe0ef;font-size:11px;font-weight:700;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+ .v13-mobile-dialogue img{width:27px;height:27px;object-fit:contain;border-radius:50%;background:#653e7180;box-shadow:0 0 7px #f3a4e066}
+ .v13-mobile-dialogue span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+@media(max-height:630px){.v13-ready .v13-mobile-dialogue{height:24px;flex-basis:24px}.v13-mobile-dialogue img{width:18px;height:18px}}
+
+
+/* V13.2 Royal Rescue: imminent danger state and reactive cinematic tutorial. */
+.v13-ready .v13-snap-anchor .ck-snap-loaded{top:58.5%!important;left:81.5%!important;opacity:0!important;}
+.v13-ready .v13-snap-anchor .ck-snap-host[data-facing="left"] .ck-snap-loaded{top:55.5%!important;left:73.5%!important;opacity:0!important;}
+.reef-alert[hidden]{display:none!important;}
+.reef-alert{position:absolute;z-index:10;left:50%;bottom:24%;transform:translateX(-50%);width:max-content;max-width:92%;display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:13px;border:2px solid #ff536d;background:#521329ee;box-shadow:0 0 25px #ff173c99,inset 0 0 15px #ff4b6a3f;pointer-events:none;color:#fff2f5;text-shadow:0 1px 3px #29050f;animation:reef-alert-beat .8s ease-in-out infinite alternate;}
+.reef-alert-icon{flex:0 0 30px;display:grid;place-items:center;width:30px;height:30px;border:2px solid #ffe2e7;background:#ff314e;border-radius:50%;font:900 19px/1 system-ui;box-shadow:0 0 12px #ff476d}
+.reef-alert strong{display:block;font-size:11px;letter-spacing:1.1px;white-space:nowrap}.reef-alert small{display:block;font-size:10px;color:#ffe2e6;white-space:normal}
+@keyframes reef-alert-beat{0%{filter:brightness(.86);opacity:.79;transform:translateX(-50%) scale(.97)}100%{filter:brightness(1.2);opacity:1;transform:translateX(-50%) scale(1)}}
+.v13-ready .board.reef-critical{border-color:#ff526e;box-shadow:inset 0 0 65px #ff17354e,0 0 0 2px #ff2c5266,0 0 26px #e64e6070;animation:reef-danger-border .67s ease-in-out infinite alternate}
+.v13-ready .board.reef-critical:before{content:"";position:absolute;z-index:8;inset:0;pointer-events:none;border-radius:inherit;background:radial-gradient(ellipse at 50% 100%,transparent 20%,#f023474a 100%);animation:reef-danger-vignette .65s ease-in-out infinite alternate}
+.v13-ready .board.reef-defeat{animation:reef-danger-defeat .3s ease-in-out 3}
+@keyframes reef-danger-border{to{border-color:#ffabb6;box-shadow:inset 0 0 68px #ff17356a,0 0 0 3px #ff476daa,0 0 31px #ff4d7699}}
+@keyframes reef-danger-vignette{to{opacity:.35}}
+@keyframes reef-danger-defeat{50%{filter:brightness(1.6) saturate(1.5)}}
+.v13-ready .combo-toast{max-width:min(60%,255px);gap:8px;background:linear-gradient(120deg,#0a3357ef,#221c49ed);border:1.5px solid #ffc3e1;box-shadow:0 0 20px #ee6ba05e;}
+.v13-ready .combo-toast img{width:64px;height:64px;border-radius:10px;object-fit:cover;object-position:center;}
+.v13-ready .combo-toast strong{font-size:clamp(15px,2.8vw,21px);text-shadow:0 2px 8px #faadbc80}
+.overlay.royal-guide-open{background:#041125ed;backdrop-filter:blur(7px)}
+.overlay.royal-guide-open .modal{width:min(670px,96vw);max-height:94dvh;padding:25px 24px 24px;background:linear-gradient(150deg,#155478,#0c3054 61%,#091c3f);border:2px solid #82def2;box-shadow:0 25px 95px #000c,0 0 50px #2aa7ce26,inset 0 0 30px #9ce9fb0d}
+.overlay.royal-guide-open .modal h2{font-size:clamp(29px,5vw,46px);margin:7px auto 12px}
+.overlay.royal-guide-open .modal p{font-size:clamp(14px,2.1vw,17px);max-width:520px;margin:13px auto 12px;line-height:1.52}
+.overlay.royal-guide-open .modal-illustration{max-width:100%;margin:7px auto 5px;min-height:210px}
+.overlay.royal-guide-open .modal-actions{gap:13px;margin-top:14px}
+.overlay.royal-guide-open .modal-actions button{font-size:15px;padding:13px 22px;min-width:132px}
+.royal-guide-scene{height:clamp(195px,29vh,290px);position:relative;overflow:hidden;border-radius:17px;border:1px solid #87dfee66;background:radial-gradient(ellipse at 40% 18%,#226d8bc0,transparent 60%),linear-gradient(#0b3554,#061e38);isolation:isolate;}
+.royal-guide-scene:before{content:"";position:absolute;inset:0;opacity:.32;pointer-events:none;background-image:radial-gradient(circle,#d7f8ff 2px,transparent 3px);background-size:90px 110px;background-position:20px 18px}
+.royal-guide-glow{position:absolute;width:220px;height:220px;border-radius:50%;top:5%;left:calc(50% - 110px);background:#ff8ed04d;filter:blur(60px)}
+.guide-meet-card{position:absolute;inset:11% 14% 18%;border:1px solid #9fe9f355;border-radius:18px;background:radial-gradient(circle at 50% 22%,#406b93a6,transparent 55%),linear-gradient(180deg,#143f63a8,#0b2746d9);box-shadow:inset 0 0 0 1px #ffffff10,0 8px 30px #00000026;overflow:hidden;}
+.royal-guide-snap{height:80%;width:auto;max-width:74%;object-fit:contain;position:absolute;left:50%;top:11%;transform:translateX(-50%);filter:drop-shadow(0 8px 22px #0008);animation:royal-bob 2.8s ease-in-out infinite alternate;}
+.royal-guide-scene .royal-guide-subtitle{position:absolute;bottom:10px;left:0;right:0;display:block;color:#caf9ff;font:bold 11px/1.2 system-ui;letter-spacing:2px;text-shadow:0 1px 5px #0008}
+.royal-guide-pearl{position:absolute;width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 28% 21%,white,#8feafa 30%,#208cbf 70%,#134477);box-shadow:0 0 12px #74ebfc;animation:royal-bob 1.7s ease-in-out infinite alternate}
+.royal-guide-pearl.pearl-a{top:18%;right:18%;}.royal-guide-pearl.pearl-b{bottom:24%;left:15%;animation-delay:-1s}.royal-guide-pearl.pearl-c{top:58%;right:28%;animation-delay:-.45s}
+.guide-shoot .guide-shooter{position:absolute;width:45%;height:72%;object-fit:contain;bottom:3%;left:3%;filter:drop-shadow(0 8px 13px #001428);animation:royal-charge 2.1s ease-in-out infinite}
+.guide-targets{position:absolute;top:13%;right:8%;display:flex;gap:4px}.guide-targets span,.guide-flying-pearl,.royal-orb{display:block;border-radius:50%;border:2px solid #effcff;box-shadow:inset 2px 3px 5px #ffffff9e,inset -5px -6px 9px #07254e82,0 0 16px #65dbf2aa;background:radial-gradient(circle at 26% 22%,#fff 0,#adf4ff 15%,#53d1f5 38%,#12689d 85%)}
+.guide-targets span{width:clamp(30px,5vw,43px);height:clamp(30px,5vw,43px);animation:royal-target 2.1s ease-in-out infinite}
+.guide-targets span:nth-child(2){animation-delay:.08s}.guide-targets span:nth-child(3){animation-delay:.16s}
+.guide-dot-path{position:absolute;left:39%;bottom:42%;width:49%;height:2px;transform:rotate(-22deg);border-top:4px dotted #c8f9ffad;filter:drop-shadow(0 0 6px #85edff)}
+.guide-flying-pearl{position:absolute;width:24px;height:24px;left:41%;bottom:38%;z-index:2;animation:royal-shoot-fly 2.1s ease-in-out infinite}
+.guide-match-text{position:absolute;right:8%;top:39%;color:#ffe6ac;font:900 13px system-ui;letter-spacing:2px;animation:royal-match .95s ease-in-out infinite alternate}
+.guide-swap-group{position:absolute;inset:10% 10% 22%;display:flex;justify-content:center;gap:clamp(16px,4vw,48px);align-items:center}
+.guide-swap-ready,.guide-swap-next{display:flex;flex-direction:column;gap:7px;align-items:center;font:900 12px system-ui;letter-spacing:1.3px;color:#dbfaff}
+.royal-orb{width:clamp(51px,10vw,84px);height:clamp(51px,10vw,84px)}
+.royal-orb.pink{background:radial-gradient(circle at 27% 20%,white,#ffd0e3 18%,#ff83c4 45%,#ae326d 90%);animation:royal-swap-left 2s ease-in-out infinite}
+.royal-orb.cyan{animation:royal-swap-right 2s ease-in-out infinite}
+.guide-swap-arrows{font:bold clamp(32px,7vw,65px)/1 system-ui;color:#bbf9ff;text-shadow:0 0 15px #78e3ff;animation:royal-arrow 2s ease-in-out infinite}
+@keyframes royal-bob{to{transform:translateY(-10px)}}
+@keyframes royal-charge{0%,100%{transform:translateX(0)}52%{transform:translateX(-4px) scale(.98)}60%{transform:translateX(5px) scale(1.03)}}
+@keyframes royal-shoot-fly{0%,19%{transform:translate(0,0) scale(.9);opacity:.6}50%,66%{transform:translate(175%,-150%) scale(1.05);opacity:1}100%{transform:translate(260%,-190%) scale(.25);opacity:0}}
+@keyframes royal-match{from{opacity:.15;transform:scale(.9)}to{opacity:1;transform:scale(1.04)}}
+@keyframes royal-target{0%,45%{opacity:1;transform:scale(1)}55%{opacity:.3;transform:scale(1.2)}68%,100%{opacity:1;transform:scale(1)}}
+@keyframes royal-swap-left{50%{transform:translateX(14px)}}
+@keyframes royal-swap-right{50%{transform:translateX(-14px)}}
+@keyframes royal-arrow{50%{transform:rotate(180deg)}}
+@media(max-width:420px){.reef-alert{bottom:28%;max-width:95%;padding:6px;gap:5px}.reef-alert-icon{flex-basis:23px;width:23px;height:23px;font-size:15px}.reef-alert strong{font-size:9px}.reef-alert small{font-size:8px}.overlay.royal-guide-open .modal{padding:15px 12px 16px}.overlay.royal-guide-open .modal-illustration{min-height:190px}.royal-guide-scene{height:190px}.v13-ready .combo-toast img{width:47px;height:47px}}
+@media(prefers-reduced-motion:reduce){.board.reef-critical,.reef-alert,.royal-guide-scene *{animation:none!important}}
+/* Keep imminent-danger messaging in clear space, away from target pearls. */
+.v13-ready .reef-alert{top:26%;bottom:auto}
+.v13-ready .board.boss-board .reef-alert{top:auto;bottom:9%}
+@media(max-width:480px){.v13-ready .reef-alert{top:25%}.v13-ready .board.boss-board .reef-alert{bottom:11%}}
+
+
+/* V13.2.4: Wide, fully responsive standalone-safe welcome screen. */
+.overlay.royal-welcome-open{background:rgba(2,13,32,.84);backdrop-filter:blur(9px)}
+.overlay.royal-welcome-open .modal{
+ width:min(800px,calc(100vw - 32px));max-height:calc(100dvh - 32px);
+ box-sizing:border-box;padding:23px 25px 21px;overflow-x:hidden;overflow-y:auto;
+ background:radial-gradient(ellipse at 18% 9%,rgba(55,140,175,.25),transparent 53%),linear-gradient(145deg,#123b5b,#091f3c 76%);
+ border:2px solid #77cadc;border-radius:25px;box-shadow:0 25px 85px #000c,inset 0 0 55px #85e5fb10;
+}
+.overlay.royal-welcome-open .modal-eyebrow{font-size:11px;letter-spacing:2.4px}
+.overlay.royal-welcome-open .modal h2{font-size:clamp(27px,3.4vw,37px);margin:6px 0 8px}
+.overlay.royal-welcome-open .modal-illustration{min-height:0;width:100%;max-width:none;margin:12px auto 0}
+.overlay.royal-welcome-open .modal>p{max-width:none;font-size:13px;margin:9px auto 2px;color:#c9e6f2}
+.overlay.royal-welcome-open .welcome-hero{
+ display:grid;grid-template-columns:minmax(200px,.8fr) minmax(0,1.2fr);
+ align-items:center;gap:21px;margin:0;padding:15px;
+ min-height:226px;border-radius:19px;border:1px solid #91dff15c;
+ background:linear-gradient(125deg,#17466b,#0a2947 68%);
+ box-shadow:inset 0 0 0 1px #ffffff08;
+}
+.overlay.royal-welcome-open .welcome-hero-art{
+ display:grid;place-items:center;position:relative;height:210px;min-height:210px;
+ overflow:hidden;border-radius:16px;border:1px solid #9cdaea3f;
+ background:radial-gradient(ellipse at 50% 40%,#347dac99,transparent 68%),linear-gradient(180deg,#17496a,#092542);
+}
+.overlay.royal-welcome-open .welcome-hero-art::after{
+ content:'';position:absolute;inset:0;pointer-events:none;
+ border-radius:inherit;box-shadow:inset 0 0 35px #a7eafa1a;
+}
+.overlay.royal-welcome-open .welcome-hero-art img{
+ position:relative;display:block;width:100%;height:100%;object-fit:contain;
+ object-position:center bottom;filter:drop-shadow(0 10px 16px #001b36a0);
+ animation:welcome-caspia-float 4.5s ease-in-out infinite;
+}
+@keyframes welcome-caspia-float{0%,100%{transform:translateY(3px)}50%{transform:translateY(-5px)}}
+.overlay.royal-welcome-open .welcome-hero-copy{min-width:0;text-align:left}
+.overlay.royal-welcome-open .welcome-badge{font-size:9px;letter-spacing:1.4px;padding:5px 10px;margin-bottom:10px}
+.overlay.royal-welcome-open .welcome-hero-copy h3{font-size:clamp(22px,2.4vw,30px);line-height:1.11;margin:0 0 9px;color:#ffcee6}
+.overlay.royal-welcome-open .welcome-hero-copy p{font:500 13px/1.48 system-ui,sans-serif;max-width:none;margin:0;color:#d6edf7}
+.overlay.royal-welcome-open .welcome-stats{gap:9px;margin-top:14px}
+.overlay.royal-welcome-open .welcome-stats span{min-height:58px;padding:7px 4px}
+.overlay.royal-welcome-open .welcome-stats b{font-size:20px}
+.overlay.royal-welcome-open .welcome-stats small{font-size:9px;letter-spacing:.55px;text-transform:uppercase}
+.overlay.royal-welcome-open .mode-cards.premium{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 0}
+.overlay.royal-welcome-open .mode-cards.premium button{
+ display:grid;grid-template-columns:42px minmax(0,1fr);grid-template-rows:auto auto;
+ align-content:center;gap:2px 9px;min-height:85px;text-align:left;
+ padding:13px 17px;border-radius:17px;border:1px solid #91dceb8a;
+ box-shadow:0 5px 15px #00152744,inset 0 0 20px #ffffff0c;
+ transition:transform .15s,border-color .15s,box-shadow .15s;
+}
+.overlay.royal-welcome-open .mode-cards.premium button:first-child{background:linear-gradient(125deg,#236d92,#134164)}
+.overlay.royal-welcome-open .mode-cards.premium button:last-child{background:linear-gradient(125deg,#66376f,#133b5e)}
+.overlay.royal-welcome-open .mode-cards.premium button>span{grid-row:1/span 2;align-self:center;justify-self:center;font-size:30px;color:#ffe2aa}
+.overlay.royal-welcome-open .mode-cards.premium button strong{font-size:15px;line-height:1.2;color:white}
+.overlay.royal-welcome-open .mode-cards.premium button small{font-size:11px;line-height:1.35;color:#c8e9f3}
+.overlay.royal-welcome-open .mode-cards.premium button:hover,.overlay.royal-welcome-open .mode-cards.premium button:focus-visible{
+ transform:translateY(-2px);border-color:#fff0ce;box-shadow:0 12px 22px #001527aa;
+}
+.overlay.royal-welcome-open .modal-actions{gap:10px;margin-top:14px}
+.overlay.royal-welcome-open .modal-actions button{min-width:120px;padding:11px 15px}
+@media(max-width:600px){
+ .overlay.royal-welcome-open .modal{width:min(100%,420px);padding:16px 13px;max-height:calc(100dvh - 20px)}
+ .overlay.royal-welcome-open .modal h2{font-size:28px}
+ .overlay.royal-welcome-open .welcome-hero{grid-template-columns:115px minmax(0,1fr);gap:11px;min-height:0;padding:10px}
+ .overlay.royal-welcome-open .welcome-hero-art{height:164px;min-height:164px}
+ .overlay.royal-welcome-open .welcome-hero-copy h3{font-size:20px;margin:0 0 8px}
+ .overlay.royal-welcome-open .welcome-hero-copy p{font-size:11px;line-height:1.35}
+ .overlay.royal-welcome-open .welcome-stats{margin-top:9px;gap:4px}
+ .overlay.royal-welcome-open .welcome-stats span{min-height:47px;padding:5px 2px}
+ .overlay.royal-welcome-open .welcome-stats b{font-size:16px}
+ .overlay.royal-welcome-open .welcome-stats small{font-size:8px;letter-spacing:0}
+ .overlay.royal-welcome-open .welcome-badge{font-size:8px;letter-spacing:.55px;padding:4px 6px;margin-bottom:7px}
+ .overlay.royal-welcome-open .mode-cards.premium{grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+ .overlay.royal-welcome-open .mode-cards.premium button{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;padding:10px 5px;min-height:95px}
+ .overlay.royal-welcome-open .mode-cards.premium button>span{font-size:24px}
+ .overlay.royal-welcome-open .mode-cards.premium button strong{font-size:13px}
+ .overlay.royal-welcome-open .mode-cards.premium button small{font-size:10px}
+ .overlay.royal-welcome-open .modal-actions{gap:6px;margin-top:10px}
+ .overlay.royal-welcome-open .modal-actions button{min-width:auto;flex:1 1 30%;font-size:11px;padding:9px 5px}
+}
+@media(max-width:340px){
+ .overlay.royal-welcome-open .welcome-hero{grid-template-columns:89px minmax(0,1fr)}
+ .overlay.royal-welcome-open .welcome-hero-art{height:156px;min-height:156px}
+ .overlay.royal-welcome-open .welcome-hero-copy h3{font-size:17px}
+ .overlay.royal-welcome-open .welcome-hero-copy p{font-size:10px}
+ .overlay.royal-welcome-open .welcome-stats b{font-size:13px}
+}
+@media(max-height:660px){
+ .overlay.royal-welcome-open .modal{padding-top:12px;padding-bottom:12px}
+ .overlay.royal-welcome-open .welcome-hero-art{height:156px;min-height:156px}
+ .overlay.royal-welcome-open .welcome-hero{min-height:0}
+ .overlay.royal-welcome-open .mode-cards.premium button{min-height:68px}
+ .overlay.royal-welcome-open .modal h2{margin:3px 0 5px}
+}
+@media(prefers-reduced-motion:reduce){.overlay.royal-welcome-open .welcome-hero-art img{animation:none}}
+
+/* Royal Arcade RC — mobile clarity, full tutorial character and low-cost controls. */
+.overlay.royal-guide-open .guide-meet-card{inset:8% 9% 17%;overflow:visible}
+.overlay.royal-guide-open .guide-meet-card .royal-guide-snap{height:90%;width:85%;max-width:none;top:2%;left:50%;object-fit:contain;animation:royal-meet-float 3.2s ease-in-out infinite;filter:drop-shadow(0 6px 10px #0008)}
+@keyframes royal-meet-float{0%,100%{transform:translate(-50%,2px)}50%{transform:translate(-50%,-4px)}}
+.v13-ready .v13-story-portrait .ck-caspia-face{filter:brightness(1.09) contrast(1.13) saturate(1.15) drop-shadow(0 5px 10px #071b3ac0)!important;opacity:1!important}
+.v13-ready .v13-story-portrait .ck-portrait-aura{opacity:.42}
+.v13-boss-anchor{will-change:transform;contain:layout style}
+.royal-audio-settings{display:grid;gap:12px;margin:10px auto;max-width:330px;text-align:left}
+.royal-audio-settings label{display:flex;align-items:center;gap:12px;padding:10px 12px;background:#0c3251;border:1px solid #5daaca85;border-radius:12px;color:#dbf5ff;font-size:14px;font-weight:700}
+.royal-audio-settings input[type=checkbox]{accent-color:#f78fca;width:19px;height:19px;flex:none}
+.royal-audio-settings label[for=audioMasterVolume]{justify-content:space-between}
+.royal-audio-settings input[type=range]{width:100%;accent-color:#ff88c6}
+.royal-audio-settings p{font-size:12px;text-align:center;margin:4px 0;color:#a5cfe0}
+@media(max-width:420px){.overlay.royal-guide-open .guide-meet-card .royal-guide-snap{height:96%;width:96%;top:1%}.toolbar{gap:3px}.icon-btn{width:29px;height:33px;font-size:15px}.v13-mobile-dialogue{font-size:12px}.v13-ready .v13-prison-anchor{transform:translateX(-50%) scale(.38)} }
+@media(max-width:350px){.toolbar{gap:2px}.icon-btn{width:27px;height:31px}.brand{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.overlay.royal-guide-open .guide-meet-card .royal-guide-snap{animation:none!important}}

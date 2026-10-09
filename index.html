@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#051d33" name="theme-color"/><title>Caspia's Digital Kingdom | ICS · TCGC</title><style>
+:root{color-scheme:dark;--pink:#ffd0e7;--aqua:#b4f0f7}*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:#f1fbff;background:#06182c}body{overflow-x:hidden;background:radial-gradient(ellipse at 40% -20%,#2d769b,transparent 70%),linear-gradient(150deg,#06182c,#0c2a46 60%,#0c1d38)}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-radial-gradient(circle at 52% 90%,transparent 0 38px,#9feaff08 39px 40px);mask-image:linear-gradient(to top,#000,transparent 60%)}.portal{width:min(980px,100%);margin:0 auto;min-height:100dvh;padding:22px clamp(17px,5vw,50px) 25px;display:flex;flex-direction:column;justify-content:center}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:10px;letter-spacing:2px;color:#b5e3eb;font-weight:800;text-transform:uppercase}.topline span:last-child{color:#ffbfe1}.stage{margin:25px auto 14px;width:100%;display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(14px,4vw,48px);align-items:center}.hero-image{position:relative;isolation:isolate;display:flex;justify-content:center;align-items:center;aspect-ratio:4/4.8;max-height:640px;overflow:hidden;border-radius:31px;background:radial-gradient(circle,#236a83,#0a2c4d);border:1px solid #88d9e85c;box-shadow:inset 0 0 80px #57c8d626,0 25px 90px #0004}.hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#061e38 0%,transparent 25%,transparent 80%,#0e3f5a25);pointer-events:none}.hero-image img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;filter:saturate(1.03)}.hero-image .gem{position:absolute;left:10px;bottom:16px;z-index:2;display:flex;align-items:center;gap:6px;padding:8px 12px;background:#082c4ba8;border:1px solid #90d8e6;border-radius:100px;font-size:10px;letter-spacing:1px;font-weight:850;color:#c1f6f8}.bubble{position:fixed;border:1px solid #a8eefe42;border-radius:50%;pointer-events:none;animation:float 12s linear infinite;bottom:-50px;left:var(--x);width:var(--s);height:var(--s);animation-delay:var(--d);z-index:3;box-shadow:inset 6px 6px 10px #fff1}@keyframes float{to{transform:translateY(-125vh) translateX(60px)}}.hero-copy .label{font-size:11px;letter-spacing:3px;font-weight:850;color:#a6eaf1;text-transform:uppercase}.hero-copy h1{font-family:Georgia,'Times New Roman',serif;color:var(--pink);font-size:clamp(41px,5.8vw,74px);line-height:1.05;letter-spacing:-1px;margin:14px 0 14px;text-wrap:balance;text-shadow:0 6px 35px #ff9dc02d}.hero-copy h1 em{font-style:normal;color:#a9edf5}.hero-copy>p{color:#d4e9f1;font-size:clamp(13px,2vw,17px);line-height:1.65;margin:0 0 25px;max-width:450px}.choices{display:grid;gap:12px}.choice{position:relative;display:flex;align-items:center;gap:16px;padding:17px 18px;text-decoration:none;color:#f9fcff;border-radius:19px;background:linear-gradient(120deg,#113e59,#0d2e4a);border:1px solid #79c9dd6b;box-shadow:inset 0 1px 0 #fff1,0 6px 22px #0003;transition:transform .2s,border-color .2s,box-shadow .2s}.choice:active{transform:scale(.98)}.choice:hover,.choice:focus-visible{transform:translateY(-2px);border-color:#cbf3fc;box-shadow:0 8px 36px #61d0fa36}.choice.game{background:linear-gradient(115deg,#63355d,#432b5b);border-color:#ffc3e1a3}.choice.game:hover{border-color:#ffe3f1;box-shadow:0 8px 36px #ff96d94d}.ico{width:52px;height:52px;flex-shrink:0;border-radius:15px;display:grid;place-items:center;background:#81d9e725;color:#c4f7fb;font-size:28px}.game .ico{background:#ffb4da24;color:#ffd1e8}.choice strong{display:block;font-size:17px}.choice small{display:block;font-size:12px;color:#c4deeb;margin-top:4px;line-height:1.4}.chevron{margin-left:auto;font-size:23px;color:#ecffff}.footer{margin-top:14px;font-size:11px;letter-spacing:.5px;text-align:center;color:#a3c6d9}.footer strong{color:#ffe0ef}.tiny{font-size:12px;color:#a9cadb;margin-top:17px;line-height:1.5}.badge{display:inline-flex;gap:6px;align-items:center;color:#c0f4ff;font-size:10px;letter-spacing:1.3px;font-weight:850;text-transform:uppercase;border:1px solid #89d6e360;border-radius:100px;padding:7px 12px;margin-bottom:5px}
+@media(max-width:680px){.portal{padding:13px 18px 23px;justify-content:flex-start}.topline{letter-spacing:1.1px;font-size:9px}.stage{display:flex;flex-direction:column;gap:14px;margin:16px 0 0}.hero-image{width:min(92%,350px);height:clamp(210px,38dvh,345px);aspect-ratio:auto;border-radius:23px}.hero-image img{object-position:50% 31%}.hero-image .gem{font-size:9px}.hero-copy{width:100%;text-align:center}.hero-copy h1{font-size:clamp(32px,8.5vw,46px);margin:8px 0}.hero-copy .label{font-size:9px}.hero-copy>p{font-size:13px;line-height:1.4;margin:9px auto 16px;max-width:380px}.choices{gap:9px}.choice{padding:12px 15px;text-align:left;border-radius:15px;gap:12px}.ico{width:43px;height:43px;font-size:23px}.choice strong{font-size:15px}.choice small{font-size:11px}.tiny{font-size:10px;margin:12px 0 0}.footer{margin:10px 0 0}}@media(max-height:680px) and (max-width:680px){.hero-image{height:27dvh;min-height:156px}.portal{padding-top:8px}.stage{margin-top:10px}.hero-copy h1{font-size:32px}.hero-copy>p{margin-bottom:10px}.choice{padding:8px 12px}.ico{width:38px;height:38px}}@media(prefers-reduced-motion:reduce){.bubble{display:none}.choice{transition:none}}
+
+
+/* V12.1 · Cinematic welcome refinements */
+body{background:#061a30}
+body:before{content:'';pointer-events:none;position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse at 48% 28%,#7de4ef11,transparent 44%);animation:welcome-aura 8s ease-in-out infinite alternate}
+@keyframes welcome-aura{to{opacity:.38;transform:scale(1.1)}}
+a[href*="game.html"]{transition:transform .22s ease,box-shadow .22s ease,filter .22s ease}
+a[href*="game.html"]:hover{transform:translateY(-4px);filter:brightness(1.1);box-shadow:0 15px 40px #ff9ac655}
+@media(prefers-reduced-motion:reduce){body:before{animation:none}a[href*="game.html"]{transition:none}}
+
+
+
+/* V14.4: living homepage — pose sequence and welcoming calls to action. */
+.hero-image{background:radial-gradient(ellipse at 50% 18%,#3b8ba2 0%,#1a5578 37%,#07223f 100%);contain:layout paint;}
+.hero-image::before{content:"";position:absolute;inset:0;z-index:0;background:
+ radial-gradient(circle at 15% 15%,#ffccf842 0 1.3%,transparent 2%),
+ radial-gradient(circle at 82% 31%,#b3f6ff77 0 .9%,transparent 1.5%),
+ radial-gradient(circle at 15% 68%,#c8edff5c 0 1%,transparent 2%),
+ radial-gradient(circle at 75% 77%,#ffffff4d 0 1.7%,transparent 2%),
+ linear-gradient(135deg,transparent 23%,#b2f1ff16 37%,transparent 53%);pointer-events:none}
+.hero-image:after{z-index:2;background:linear-gradient(0deg,#05182bd6,transparent 24%,transparent 84%,#0c37564a)}
+.hero-image .caspia-pose{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;object-position:center 53%;padding:8px 0 24px;opacity:0;pointer-events:none;z-index:1;transform:translate3d(0,10px,0) scale(.976);transition:opacity .66s ease,transform 1.15s cubic-bezier(.22,.61,.36,1);filter:drop-shadow(0 18px 22px #061c3a7a);will-change:opacity,transform;}
+.hero-image .caspia-pose.is-active{opacity:1;transform:translate3d(0,0,0) scale(1)}
+.hero-image .caspia-pose.is-active[data-pose="wave"]{animation:caspia-wiggle 2.2s ease-in-out both}
+.hero-image .caspia-pose.is-active[data-pose="comb"]{animation:caspia-hair-sway 2.4s ease-in-out both}
+@keyframes caspia-wiggle{0%,100%{transform:translate3d(0,0,0) rotate(0)}28%{transform:translate3d(0,-5px,0) rotate(-1deg)}63%{transform:translate3d(0,-7px,0) rotate(.9deg)}}
+@keyframes caspia-hair-sway{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-7px,0) rotate(.5deg)}}
+.caspia-greeting{position:absolute;bottom:59px;left:50%;translate:-50% 0;z-index:4;max-width:calc(100% - 30px);width:max-content;padding:8px 13px;border:1px solid #c9efffc4;border-radius:15px 15px 15px 4px;background:#08243de6;color:#fff4fa;font-size:12px;font-weight:700;box-shadow:0 6px 25px #00152788;line-height:1.25;text-align:center;text-wrap:balance;pointer-events:none}
+.caspia-greeting:before{content:'✦';margin-right:7px;color:#ffcedf}
+.caspia-motion-control{position:absolute;top:12px;right:12px;z-index:5;border:1px solid #c1ebff81;background:#06233cdc;color:#effaff;border-radius:100px;padding:9px 12px;font:750 11px system-ui;cursor:pointer;box-shadow:0 8px 22px #06182b77}
+.caspia-motion-control:hover,.caspia-motion-control:focus-visible{background:#165578;outline:2px solid #c3eafa;outline-offset:2px}
+.hero-image .gem{z-index:4;left:13px;bottom:13px}
+.choice{overflow:hidden;isolation:isolate;min-height:92px;outline-offset:4px;}
+.choice::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:#9ff0fa;opacity:.75;transition:width .2s,opacity .2s;z-index:-1}
+.choice.game::before{background:#ffc2e5}
+.choice::after{content:"";position:absolute;top:-60%;left:-130%;height:240%;width:60%;background:linear-gradient(90deg,transparent,#ffffff0d,transparent);transform:rotate(15deg);transition:left .5s ease;pointer-events:none}
+.choice:hover::after,.choice:focus-visible::after{left:130%}
+.choice .ico{transition:transform .22s ease,box-shadow .22s ease;border:1px solid #d5fdff2a}
+.choice:hover .ico,.choice:focus-visible .ico{transform:scale(1.06);box-shadow:0 0 20px #8beaf331}
+.choice .chevron{transition:transform .22s ease;color:#f3fcff;font-size:29px}
+.choice:hover .chevron,.choice:focus-visible .chevron{transform:translateX(5px)}
+.choice:focus-visible{outline:3px solid #f4e8ff}
+.hero-copy>.tiny{text-align:left}
+@media(max-width:680px){.hero-image .caspia-pose{object-position:center 48%;padding:2px 0 14px}.caspia-greeting{bottom:47px;font-size:10px;padding:6px 10px}.caspia-motion-control{top:8px;right:8px;padding:7px 9px;font-size:10px}.choice{min-height:69px}.hero-copy>.tiny{text-align:center}}
+@media(max-height:680px) and (max-width:680px){.caspia-greeting{bottom:35px}.hero-image .gem{padding:5px 8px;bottom:5px}}
+@media(prefers-reduced-motion:reduce){.hero-image .caspia-pose{transition:none!important;animation:none!important;will-change:auto!important}.choice:before,.choice:after,.choice .ico,.choice .chevron{transition:none!important}}
+</style></head><body>
+<div class="bubble" style="--x:12%;--s:27px;--d:-4s"></div><div class="bubble" style="--x:79%;--s:17px;--d:-7s"></div><div class="bubble" style="--x:45%;--s:34px;--d:-10s"></div>
+<main class="portal"><div class="topline"><span>ICS · TCGC</span><span>LMC 2026 · PRINCESS CASPIA</span></div><div class="stage"><div class="hero-image" data-caspia-stage=""><img alt="Caspia gently combing her hair" aria-hidden="true" class="caspia-pose" data-pose="comb" decoding="async" loading="lazy" src="assets/home-motion/caspia-comb.webp"/><img alt="Caspia covering her mouth as she yawns" aria-hidden="true" class="caspia-pose" data-pose="yawn" decoding="async" loading="lazy" src="assets/home-motion/caspia-yawn.webp"/><img alt="Caspia smiling" aria-hidden="true" class="caspia-pose" data-pose="smile" decoding="async" loading="lazy" src="assets/home-motion/caspia-smile.webp"/><img alt="Caspia waving hello" aria-hidden="false" class="caspia-pose is-active" data-pose="wave" decoding="async" fetchpriority="high" src="assets/home-motion/caspia-wave.webp"/><div class="gem">✦ THE ROYAL UNDERWATER KINGDOM</div><div aria-hidden="true" class="caspia-greeting" data-caspia-greeting="">Hello, explorer!</div><button aria-label="Pause or play Caspia animation" aria-pressed="false" class="caspia-motion-control" data-motion-toggle="" type="button">Ⅱ Pause animation</button></div><div class="hero-copy"><span class="badge">✦ ONE KINGDOM · TWO ADVENTURES</span><h1>Welcome to<br/><em>Caspia's</em><br/>Digital Kingdom</h1><p>Discover the creativity of the Institute of Computer Studies—or help Snap rescue Princess Caspia in a magical bubble-shooting adventure.</p><nav aria-label="Choose your adventure" class="choices"><a class="choice" href="kingdom.html"><span aria-hidden="true" class="ico">♜</span><span><strong>Explore Our Website</strong><small>Discover our booth, values, teamwork and achievements.</small></span><span aria-hidden="true" class="chevron">›</span></a><a class="choice game" href="game.html"><span aria-hidden="true" class="ico">◉</span><span><strong>Play: Save Princess Caspia</strong><small>10 stages · boss battles · a magical rescue.</small></span><span aria-hidden="true" class="chevron">›</span></a></nav><div class="tiny">📱 Works on phones · No account or installation required</div></div></div><footer class="footer">Made with creativity and code by <strong>Institute of Computer Studies</strong> · TCGC</footer></main><script>
+(()=>{'use strict';
+ const stage=document.querySelector('[data-caspia-stage]');
+ if(!stage)return;
+ const poses=Array.from(stage.querySelectorAll('[data-pose]'));
+ const note=stage.querySelector('[data-caspia-greeting]');
+ const button=stage.querySelector('[data-motion-toggle]');
+ const states=['wave','smile','yawn','comb','smile'];
+ const duration=[4500,4500,4500,4500,4500];
+ const labels={wave:'Hello, explorer!',smile:'Welcome to my kingdom!',yawn:'What a dreamy day…',comb:'Just a little royal sparkle!'};
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ let idx=0,timer=null,userPaused=false;
+ const view=(i)=>{idx=i;const state=states[i];poses.forEach(img=>{const active=img.dataset.pose===state;img.classList.toggle('is-active',active);img.setAttribute('aria-hidden',String(!active));});note.textContent=labels[state];};
+ const stop=()=>{if(timer!==null){clearTimeout(timer);timer=null;}};
+ const shouldRun=()=>!userPaused&&!document.hidden&&!reduced.matches;
+ const schedule=()=>{stop();if(!shouldRun())return;timer=setTimeout(()=>{view((idx+1)%states.length);schedule();},duration[idx]);};
+ const syncButton=()=>{button.disabled=reduced.matches;if(reduced.matches){button.textContent='Motion reduced';button.setAttribute('aria-pressed','true');return;}button.textContent=shouldRun()?'Ⅱ Pause animation':'▶ Play animation';button.setAttribute('aria-pressed',String(!shouldRun()));};
+ button.addEventListener('click',()=>{userPaused=!userPaused;syncButton();schedule();});
+ document.addEventListener('visibilitychange',()=>{syncButton();schedule();});
+ if(reduced.addEventListener)reduced.addEventListener('change',()=>{if(reduced.matches){view(1);}syncButton();schedule();});
+ view(reduced.matches?1:0);syncButton();schedule();
+ window.caspiaPortalAnimation={show:(state)=>{const i=states.indexOf(state);if(i>=0){view(i);schedule();}},getState:()=>states[idx]};
+})();
+</script></body></html>
